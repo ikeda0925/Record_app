@@ -1,0 +1,86 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.logo {
+  text-align: center;
+}
+.characters img{
+  width: 70px;
+}
+.characters {
+  text-align: center;
+}
+
+.result_characters img {
+  width: 100px;
+}
+.result_characters {
+  text-align: center;
+}
+
+.character_select {
+  text-align: center;
+  position: relative;
+  top: 70px;
+}
+.character_select #link {
+  font-size: 30px;
+  position: relative;
+  top: 50px;
+}
+
+.rate #player_1 {
+  position: absolute;
+  left: 250px;
+  top: 100px;
+}
+.rate #player_2 {
+  position: absolute;
+  right: 250px;
+  top: 100px;
+}
+
+.rate #rate_1 {
+  position: absolute;
+  left: -50px;
+  font-size: 70px;
+  color: red;
+}
+.rate #rate_2 {
+  position: absolute;
+  right: -70px;
+  font-size: 70px;
+  color: red;
+}
+
+.rate #player_1_main {
+  position: relative;
+  font-size: 20px;
+  top: 150px;
+  left: -100px;
+}
+.rate #player_2_main {
+  position: relative;
+  font-size: 20px;
+  top: 150px;
+  right: -100px;
+}
+.rate img {
+  width: 100px;
+}
+
+.rate #player_1_sub {
+  position: relative;
+  top: 180px;
+  left: -100px;
+}
+.rate #player_2_sub {
+  position: relative;
+  top: 180px;
+  right: -100px;
+}
+
+#player_2 font {
+  position: relative;
+  right: -200px;
+}

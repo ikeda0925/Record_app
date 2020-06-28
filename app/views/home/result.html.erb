@@ -1,0 +1,82 @@
+<div class="logo">
+  <%= link_to image_tag("/assets/logo.jpg"), "/"%>
+</div>
+
+<div class="rate">
+
+  <div id="player_1">
+    <font size="50">いけ</font>
+    <div id="rate_1">
+      <%= @rate_1 %>％
+    </div>
+
+    <div id="player_1_main">
+      メイン<br>
+      <%= link_to image_tag(@player_1_main.image), "/search_1/#{@player_1_main.name}"%>
+    </div>
+
+    <div id="player_1_sub">
+      サブ<br>
+      <% @player_1_sub.each do |sub|%>
+        <%= link_to image_tag(sub.image), "/search_1/#{sub.name}"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="player_2">
+    <font size="50">まれ</font>
+    <div id="rate_2">
+      <%= @rate_2 %>％
+    </div>
+
+    <div id="player_2_main">
+      メイン<br>
+      <%= link_to image_tag(@player_2_main.image), "search_2/#{@player_2_main.name}"%>
+    </div>
+
+    <div id="player_2_sub">
+      サブ<br>
+      <% @player_2_sub.each do |sub|%>
+        <%= link_to image_tag(sub.image), "/search_2/#{sub.name}"%>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+
+
+<% count = 0 %>
+<div class= "result_characters">
+    <% @records.each do |record| %>
+      <% if count < 10 then %>
+      <div>
+        <% if record.win_user_id == 1 then %>
+          <font color="red">勝</font>
+        <% elsif record.lose_user_id == 1 then %>
+          <font color="blue">負</font>
+        <% end %>
+
+        <% @characters.each do |character| %>
+          <% if record.character_1_id == character.id then %>
+            <img src="/assets/<%= character.image %>">
+            vs
+          <% end %>
+        <% end %>
+
+        <% @characters.each do |character| %>
+          <% if record.character_2_id == character.id then %>
+            <img src="/assets/<%= character.image %>">
+          <% end %>
+        <% end %>
+
+        <% if record.win_user_id == 2 then %>
+          <font color="red">勝</font>
+        <% elsif record.lose_user_id == 2 then %>
+          <font color="blue">負</font>
+        <% end %>
+      </div>
+      <% count = count + 1%>
+      <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class="characters">
+  <% count = 0%>
+  <% @characters.each do |character|%>
+    <img src="/assets/<%= character.image%>">
+    <% count = count + 1%>
+    <% if count > 12 then %>
+      <br>
+      <% count = 0 %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="character_select">
+  <%= form_tag("/select", {multipart: true}) do %>
+  <select name="player_1">
+    <% @characters.each do |character|%>
+      <option value="<%= character.name %>"><%= character.name%></option>
+    <% end %>
+  </select>
+    vs
+    <select name="player_2">
+      <% @characters.each do |character|%>
+        <option value="<%= character.name %>"><%= character.name%></option>
+      <% end %>
+    </select>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('select[name=player_1]').ImageSelect({dropdownWidth:425});
+      });
+    </script>
+
+    <input type="submit" value="WIN" name="win">
+    <input type="submit" value="LOSE" name="lose">
+  <% end %>
+
+  <div id="link">
+    <%= link_to("戦績", "/result")%>
+  </div>
+</div>
